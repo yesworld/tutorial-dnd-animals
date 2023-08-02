@@ -7,3 +7,4 @@
 ## Список уроков
 - Урок 0: Подготовка проекта. Установка Vite, Prettier и Konva.
 - Урок 1: SVG нарезка и содание отдельных файлов c животными. Подготовка файла источника **sources** с набором координат. [git-branch](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
+

@@ -52,6 +52,7 @@ function initStage(images) {
   var background = new Konva.Layer()
   var animalLayer = new Konva.Layer()
   var animalShapes = []
+
   var score = 0
 
   // image positions
