@@ -1,5 +1,6 @@
 import './style.css'
 import Konva from 'konva'
+import { dataAnimals, dataBackground } from './sources.ts'
 
 var width = window.innerWidth
 var height = window.innerHeight
@@ -46,13 +47,13 @@ function drawBackground(background, beachImg, text) {
 function initStage(images) {
   var stage = new Konva.Stage({
     container: 'app',
-    width: 578,
-    height: 530,
+    width: dataBackground.width,
+    height: dataBackground.height,
   })
   var background = new Konva.Layer()
   var animalLayer = new Konva.Layer()
   var animalShapes = []
-  var score = 0
+  var score = 3
 
   // image positions
   var animals = {
@@ -88,8 +89,8 @@ function initStage(images) {
       y: 420,
     },
     lion_black: {
-      x: 100,
-      y: 390,
+      x: dataAnimals.monkey.drop.x,
+      y: dataAnimals.monkey.drop.y,
     },
   }
 
@@ -105,6 +106,8 @@ function initStage(images) {
         x: anim.x,
         y: anim.y,
         draggable: true,
+        width: dataAnimals.monkey.width,
+        height: dataAnimals.monkey.height,
       })
 
       animal.on('dragstart', function () {
@@ -165,6 +168,8 @@ function initStage(images) {
         image: imageObj,
         x: out.x,
         y: out.y,
+        width: dataAnimals.monkey.width,
+        height: dataAnimals.monkey.height,
       })
 
       animalLayer.add(outline)
@@ -174,17 +179,17 @@ function initStage(images) {
   stage.add(background)
   stage.add(animalLayer)
 
-  drawBackround(background, images.beach, 'Ahoy! Put the animals on the beach!')
+  drawBackground(background, images.beach, 'Ahoy! Put the animals on the beach!')
 }
 
 var sources = {
-  // beach: 'beach.png',
+  beach: dataBackground.src,
   // snake: 'snake.png',
   // snake_glow: 'snake-glow.png',
   // snake_black: 'snake-black.png',
-  lion: 'lion.png',
-  lion_glow: 'lion-glow.png',
-  lion_black: 'lion-black.png',
+  lion: dataAnimals.monkey.src,
+  lion_glow: dataAnimals.monkey.glow,
+  lion_black: dataAnimals.monkey.drop.src,
   // monkey: 'monkey.png',
   // monkey_glow: 'monkey-glow.png',
   // monkey_black: 'monkey-black.png',
