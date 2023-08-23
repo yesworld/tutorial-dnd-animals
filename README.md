@@ -7,5 +7,8 @@
 <div dir="rtl">Image by <a href="https://www.freepik.com/free-vector/world-animal-day-flat-design-background_31240982.htm#&position=0&from_view=search&track=ais">Freepik</a></div>
 
 ## Список уроков
-- Урок 0: Подготовка проекта. Установка Vite, Prettier и Konva. [YouTube](https://www.youtube.com/watch?v=HO6wBG8FFqo)
-- Урок 1: SVG нарезка и содание отдельных файлов c животными. Подготовка файла источника **sources** с набором координат. [YouTube](https://www.youtu.be/k87xvt_7WcM) [git-branch](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
+- Урок 0: Подготовка проекта. Установка Vite, Prettier и Konva.<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=HO6wBG8FFqo)
+  
+- Урок 1: SVG нарезка и содание отдельных файлов c животными. Подготовка файла источника **sources** с набором координат.<br>
+   :tv: [YouTube](https://www.youtu.be/k87xvt_7WcM) :octocat: [git-branch-tutorial-01](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
