@@ -1,28 +1,44 @@
 import './style.css'
 import Konva from 'konva'
 import { dataAnimals, dataBackground } from './sources.ts'
+import ImageLoaderService from './services/ImageLoaderService.ts'
+import { AnimalImages } from './types/image.ts'
 
-var width = window.innerWidth
-var height = window.innerHeight
+const imageLoaderService = new ImageLoaderService()
+const backgroundImage = await imageLoaderService.load(
+  dataBackground.src,
+  dataBackground.width,
+  dataBackground.height,
+)
 
-function loadImages(sources, callback) {
-  var assetDir = '/'
-  var images = {}
-  var loadedImages = 0
-  var numImages = 0
-  for (var src in sources) {
-    numImages++
-  }
-  for (var src in sources) {
-    images[src] = new Image()
-    images[src].onload = function () {
-      if (++loadedImages >= numImages) {
-        callback(images)
-      }
-    }
-    images[src].src = assetDir + sources[src]
+const animalImages: AnimalImages = {}
+for (const nameAnimal in dataAnimals) {
+  const animal = dataAnimals[nameAnimal]
+  animalImages[nameAnimal] = {
+    origin: await imageLoaderService.load(animal.src, animal.width, animal.height),
+    glow: await imageLoaderService.load(animal.glow, animal.width, animal.height),
+    drop: await imageLoaderService.load(animal.drop.src, animal.width, animal.height),
   }
 }
+
+var sources = {
+  beach: backgroundImage,
+  // snake: 'snake.png',
+  // snake_glow: 'snake-glow.png',
+  // snake_black: 'snake-black.png',
+  lion: animalImages['monkey'].origin,
+  lion_glow: animalImages['monkey'].glow,
+  lion_black: animalImages['monkey'].drop,
+  // monkey: 'monkey.png',
+  // monkey_glow: 'monkey-glow.png',
+  // monkey_black: 'monkey-black.png',
+  // giraffe: 'giraffe.png',
+  // giraffe_glow: 'giraffe-glow.png',
+  // giraffe_black: 'giraffe-black.png',
+}
+
+initStage(sources)
+
 function isNearOutline(animal, outline) {
   var a = animal
   var o = outline
@@ -181,20 +197,3 @@ function initStage(images) {
 
   drawBackground(background, images.beach, 'Ahoy! Put the animals on the beach!')
 }
-
-var sources = {
-  beach: dataBackground.src,
-  // snake: 'snake.png',
-  // snake_glow: 'snake-glow.png',
-  // snake_black: 'snake-black.png',
-  lion: dataAnimals.monkey.src,
-  lion_glow: dataAnimals.monkey.glow,
-  lion_black: dataAnimals.monkey.drop.src,
-  // monkey: 'monkey.png',
-  // monkey_glow: 'monkey-glow.png',
-  // monkey_black: 'monkey-black.png',
-  // giraffe: 'giraffe.png',
-  // giraffe_glow: 'giraffe-glow.png',
-  // giraffe_black: 'giraffe-black.png',
-}
-loadImages(sources, initStage)
