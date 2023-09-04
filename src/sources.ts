@@ -1,10 +1,12 @@
+import { AnimalsData } from './types/data.ts'
+
 const dataBackground = {
   src: 'background.svg',
   width: 750,
   height: 500,
 }
 
-const dataAnimals = {
+const dataAnimals: AnimalsData = {
   monkey: {
     src: 'monkey.svg',
     x: 0,
