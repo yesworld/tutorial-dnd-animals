@@ -1,15 +1,17 @@
+export type ImageData = {
+  src: string
+  width: number
+  height: number
+}
 type DropData = {
   src: string
   x: number
   y: number
 }
-type AnimalData = {
-  src: string
+type AnimalData = ImageData & {
   x: number
   y: number
   glow: string
-  width: number
-  height: number
   drop: DropData
 }
 

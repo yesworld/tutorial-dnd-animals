@@ -5,3 +5,10 @@ export type AnimalImages = {
     drop: HTMLImageElement
   }
 }
+export type AnimalPromiseImages = {
+  [key: string]: {
+    origin: Promise<HTMLImageElement>
+    glow: Promise<HTMLImageElement>
+    drop: Promise<HTMLImageElement>
+  }
+}
