@@ -14,3 +14,6 @@
 
 - Урок 2: Создание ImageLoaderService по загрузке изображений. Добавление типов для TS.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=rzPTPMg2E30) :octocat: [git-branch-tutorial2-create-image-loader-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial2-create-image-loder-service)
+
+- Урок 3: Применяем пораждающий паттерн Билдер (Builder). Приводим проект к ООП стилю.<br>
+  :tv: [YouTube](https://youtu.be/kjj_4czV--c) :octocat: [git-branch-tutorial3-create-game-builder](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial3-create-game-builder)
