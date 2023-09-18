@@ -8,6 +8,7 @@ export default class Game {
       width: dataBackground.width,
       height: dataBackground.height,
     })
+
     var background = new Konva.Layer()
     var animalLayer = new Konva.Layer()
     var animalShapes = []

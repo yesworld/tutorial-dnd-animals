@@ -3,11 +3,13 @@ export type ImageData = {
   width: number
   height: number
 }
+
 type DropData = {
   src: string
   x: number
   y: number
 }
+
 type AnimalData = ImageData & {
   x: number
   y: number

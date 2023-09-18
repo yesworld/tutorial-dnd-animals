@@ -31,6 +31,7 @@ export default class GameBuilder {
 
     return this
   }
+
   async build(): Promise<Game> {
     const backgroundImage =
       this.backgroundImage !== null ? await this.backgroundImage : new Image()
