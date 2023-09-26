@@ -1,73 +1,25 @@
-import Konva from 'konva'
-import { dataAnimals, dataBackground } from '../sources.ts'
+import KonvaFactory from '../factories/KonvaFactory.ts'
+import { AnimalsWithImages } from '../types/data.ts'
 
 export default class Game {
-  constructor(images) {
-    var stage = new Konva.Stage({
-      container: 'app',
-      width: dataBackground.width,
-      height: dataBackground.height,
-    })
+  constructor(
+    private readonly konvaFactory: KonvaFactory,
+    private readonly animalsWithImages: AnimalsWithImages,
+  ) {
+    let stage = this.konvaFactory.createStage()
 
-    var background = new Konva.Layer()
-    var animalLayer = new Konva.Layer()
-    var animalShapes = []
+    let background = this.konvaFactory.createLayer()
+    let animalDropLayer = this.konvaFactory.createLayer()
+    let animalLayer = this.konvaFactory.createLayer()
     var score = 3
 
-    // image positions
-    var animals = {
-      snake: {
-        x: 10,
-        y: 70,
-      },
-      giraffe: {
-        x: 90,
-        y: 70,
-      },
-      monkey: {
-        x: 275,
-        y: 70,
-      },
-      lion: {
-        x: 400,
-        y: 70,
-      },
-    }
-
-    var outlines = {
-      snake_black: {
-        x: 275,
-        y: 350,
-      },
-      giraffe_black: {
-        x: 390,
-        y: 250,
-      },
-      monkey_black: {
-        x: 300,
-        y: 420,
-      },
-      lion_black: {
-        x: dataAnimals.monkey.drop.x,
-        y: dataAnimals.monkey.drop.y,
-      },
-    }
-
     // create draggable animals
-    for (var key in animals) {
+    for (var key in this.animalsWithImages) {
       // anonymous function to induce scope
       ;(function (that) {
-        var privKey = key
-        var anim = animals[key]
+        let anim = that.animalsWithImages[key]
 
-        var animal = new Konva.Image({
-          image: images[key],
-          x: anim.x,
-          y: anim.y,
-          draggable: true,
-          width: dataAnimals.monkey.width,
-          height: dataAnimals.monkey.height,
-        })
+        let animal = that.konvaFactory.createOriginImage(anim)
 
         animal.on('dragstart', function () {
           this.moveToTop()
@@ -77,17 +29,16 @@ export default class Game {
          * snap into place if it is
          */
         animal.on('dragend', function () {
-          var outline = outlines[privKey + '_black']
-          if (!animal.inRightPlace && that.isNearOutline(animal, outline)) {
+          if (!animal.inRightPlace && that.isNearOutline(animal, anim.drop)) {
             animal.position({
-              x: outline.x,
-              y: outline.y,
+              x: anim.drop.x,
+              y: anim.drop.y,
             })
             animal.inRightPlace = true
 
             if (++score >= 4) {
               var text = 'You win! Enjoy your booty!'
-              that.drawBackground(background, images.beach, text)
+              that.drawBackground(background, that.konvaFactory.getHtmlBackground(), text)
             }
 
             // disable drag and drop
@@ -98,12 +49,12 @@ export default class Game {
         })
         // make animal glow on mouseover
         animal.on('mouseover', function () {
-          animal.image(images[privKey + '_glow'])
+          animal.image(anim.images.glow)
           document.body.style.cursor = 'pointer'
         })
         // return animal on mouseout
         animal.on('mouseout', function () {
-          animal.image(images[privKey])
+          animal.image(anim.images.origin)
           document.body.style.cursor = 'default'
         })
 
@@ -111,34 +62,22 @@ export default class Game {
           document.body.style.cursor = 'pointer'
         })
 
+        let outline = that.konvaFactory.createDropImage(anim)
+
+        animalDropLayer.add(outline)
         animalLayer.add(animal)
-        animalShapes.push(animal)
       })(this)
     }
 
-    // create animal outlines
-    for (var key in outlines) {
-      // anonymous function to induce scope
-      ;(function () {
-        var imageObj = images[key]
-        var out = outlines[key]
-
-        var outline = new Konva.Image({
-          image: imageObj,
-          x: out.x,
-          y: out.y,
-          width: dataAnimals.monkey.width,
-          height: dataAnimals.monkey.height,
-        })
-
-        animalLayer.add(outline)
-      })()
-    }
-
     stage.add(background)
+    stage.add(animalDropLayer)
     stage.add(animalLayer)
 
-    this.drawBackground(background, images.beach, 'Ahoy! Put the animals on the beach!')
+    this.drawBackground(
+      background,
+      this.konvaFactory.getHtmlBackground(),
+      'Ahoy! Put the animals on the beach!',
+    )
   }
 
   isNearOutline(animal, outline) {

@@ -1,13 +1,17 @@
 import Game from './Game.ts'
 import ImageLoaderService from '../services/ImageLoaderService.ts'
 import { AnimalPromiseImages } from '../types/image.ts'
-import { AnimalsData, ImageData } from '../types/data.ts'
+import { AnimalsData, AnimalsWithImages, ImageData } from '../types/data.ts'
+import KonvaFactory from '../factories/KonvaFactory.ts'
 
 export default class GameBuilder {
   private backgroundImage: Promise<HTMLImageElement> | null = null
   private animalImages: AnimalPromiseImages = {}
 
-  constructor(private readonly imageLoaderService: ImageLoaderService) {}
+  constructor(
+    private readonly imageLoaderService: ImageLoaderService,
+    private readonly dataAnimals: AnimalsData,
+  ) {}
 
   loadBackground(dataBackground: ImageData): GameBuilder {
     this.backgroundImage = this.imageLoaderService.load(
@@ -19,9 +23,9 @@ export default class GameBuilder {
     return this
   }
 
-  loadImageAnimals(dataAnimals: AnimalsData): GameBuilder {
-    for (const animalName in dataAnimals) {
-      const animal = dataAnimals[animalName]
+  loadImageAnimals(): GameBuilder {
+    for (const animalName in this.dataAnimals) {
+      const animal = this.dataAnimals[animalName]
       this.animalImages[animalName] = {
         origin: this.imageLoaderService.load(animal.src, animal.width, animal.height),
         glow: this.imageLoaderService.load(animal.glow, animal.width, animal.height),
@@ -35,13 +39,25 @@ export default class GameBuilder {
   async build(): Promise<Game> {
     const backgroundImage =
       this.backgroundImage !== null ? await this.backgroundImage : new Image()
-    let sources = {
-      beach: backgroundImage,
-      lion: await this.animalImages['monkey'].origin,
-      lion_glow: await this.animalImages['monkey'].glow,
-      lion_black: await this.animalImages['monkey'].drop,
+
+    const animalsWithImages: AnimalsWithImages = {}
+    for (const animalName in this.animalImages) {
+      const animalImage = this.animalImages[animalName]
+      const origin = await animalImage.origin
+      const glow = await animalImage.glow
+      const drop = await animalImage.drop
+
+      animalsWithImages[animalName] = {
+        ...this.dataAnimals[animalName],
+        images: {
+          origin,
+          glow,
+          drop,
+        },
+      }
     }
 
-    return new Game(sources)
+    const konvaFactory = new KonvaFactory(backgroundImage, animalsWithImages)
+    return new Game(konvaFactory, animalsWithImages)
   }
 }

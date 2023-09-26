@@ -1,3 +1,5 @@
+import { AnimalImageElements } from './image.ts'
+
 export type ImageData = {
   src: string
   width: number
@@ -19,4 +21,10 @@ type AnimalData = ImageData & {
 
 export type AnimalsData = {
   [key: string]: Readonly<AnimalData>
+}
+
+export type AnimalWithImages = AnimalData & AnimalImageElements
+
+export type AnimalsWithImages = {
+  [key: string]: AnimalWithImages
 }
