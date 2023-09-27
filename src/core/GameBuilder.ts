@@ -57,7 +57,8 @@ export default class GameBuilder {
       }
     }
 
-    const konvaFactory = new KonvaFactory(backgroundImage, animalsWithImages)
-    return new Game(konvaFactory, animalsWithImages)
+    const konvaFactory = new KonvaFactory(backgroundImage.width, backgroundImage.height)
+
+    return new Game(konvaFactory, animalsWithImages, backgroundImage)
   }
 }

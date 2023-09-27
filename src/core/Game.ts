@@ -5,21 +5,27 @@ export default class Game {
   constructor(
     private readonly konvaFactory: KonvaFactory,
     private readonly animalsWithImages: AnimalsWithImages,
+    private readonly backgroundImage: HTMLImageElement,
   ) {
     let stage = this.konvaFactory.createStage()
 
-    let background = this.konvaFactory.createLayer()
+    let backgroundLayer = this.konvaFactory.createLayer()
     let animalDropLayer = this.konvaFactory.createLayer()
     let animalLayer = this.konvaFactory.createLayer()
+
+    stage.add(backgroundLayer)
+    stage.add(animalDropLayer)
+    stage.add(animalLayer)
+
     var score = 3
 
     // create draggable animals
-    for (var key in this.animalsWithImages) {
+    for (let animalName in this.animalsWithImages) {
       // anonymous function to induce scope
       ;(function (that) {
-        let anim = that.animalsWithImages[key]
+        let anim = that.animalsWithImages[animalName]
 
-        let animal = that.konvaFactory.createOriginImage(anim)
+        let animal = that.konvaFactory.createImage(anim)
 
         animal.on('dragstart', function () {
           this.moveToTop()
@@ -38,7 +44,7 @@ export default class Game {
 
             if (++score >= 4) {
               var text = 'You win! Enjoy your booty!'
-              that.drawBackground(background, that.konvaFactory.getHtmlBackground(), text)
+              that.drawBackground(backgroundLayer, that.backgroundImage, text)
             }
 
             // disable drag and drop
@@ -69,13 +75,9 @@ export default class Game {
       })(this)
     }
 
-    stage.add(background)
-    stage.add(animalDropLayer)
-    stage.add(animalLayer)
-
     this.drawBackground(
-      background,
-      this.konvaFactory.getHtmlBackground(),
+      backgroundLayer,
+      this.backgroundImage,
       'Ahoy! Put the animals on the beach!',
     )
   }
