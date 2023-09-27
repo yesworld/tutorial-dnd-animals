@@ -12,3 +12,10 @@ export type AnimalPromiseImages = {
     drop: Promise<HTMLImageElement>
   }
 }
+export type AnimalImageElements = {
+  images: {
+    origin: HTMLImageElement
+    glow: HTMLImageElement
+    drop: HTMLImageElement
+  }
+}
