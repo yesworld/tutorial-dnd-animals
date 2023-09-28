@@ -17,3 +17,6 @@
 
 - Урок 3: Применяем пораждающий паттерн Билдер (Builder). Приводим проект к ООП стилю.<br>
   :tv: [YouTube](https://youtu.be/kjj_4czV--c) :octocat: [git-branch-tutorial3-create-game-builder](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial3-create-game-builder)
+
+- Урок 4: Применяем пораждающий паттерн Фабрика (Simple Factory). Делаем небольшой рефакторинг.<br>
+  :tv: [YouTube](https://youtu.be/Npjy5hL6ppA) :octocat: [git-branch-tutorial4-create-konva-factory](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial4-create-konva-factory)
