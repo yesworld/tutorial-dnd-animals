@@ -10,7 +10,7 @@
   :tv: [YouTube](https://www.youtube.com/watch?v=HO6wBG8FFqo)
   
 - Урок 1: SVG нарезка и содание отдельных файлов c животными. Подготовка файла источника **sources** с набором координат.<br>
-  :tv: [YouTube](https://www.youtu.be/k87xvt_7WcM) :octocat: [git-branch-tutorial-01](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
+  :tv: [YouTube](https://www.youtube.com/watch?v=k87xvt_7WcM) :octocat: [git-branch-tutorial-01](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
 
 - Урок 2: Создание ImageLoaderService по загрузке изображений. Добавление типов для TS.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=rzPTPMg2E30) :octocat: [git-branch-tutorial2-create-image-loader-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial2-create-image-loder-service)
