@@ -43,9 +43,11 @@ export default class GameBuilder {
     const animalsWithImages: AnimalsWithImages = {}
     for (const animalName in this.animalImages) {
       const animalImage = this.animalImages[animalName]
-      const origin = await animalImage.origin
-      const glow = await animalImage.glow
-      const drop = await animalImage.drop
+      const [origin, glow, drop] = await Promise.all([
+        animalImage.origin,
+        animalImage.glow,
+        animalImage.drop,
+      ])
 
       animalsWithImages[animalName] = {
         ...this.dataAnimals[animalName],
