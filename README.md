@@ -20,3 +20,6 @@
 
 - Урок 4: Применяем пораждающий паттерн Фабрика (Simple Factory). Делаем небольшой рефакторинг.<br>
   :tv: [YouTube](https://youtu.be/Npjy5hL6ppA) :octocat: [git-branch-tutorial4-create-konva-factory](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial4-create-konva-factory)
+
+- Урок 5: Применяем анти паттерн Одиночка (Singleton).<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=T1l9GX3thv8) :octocat: [git-branch-tutorial5-create-pattern-singleton](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial5-create-pattern-singleton)
