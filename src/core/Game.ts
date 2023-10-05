@@ -1,5 +1,7 @@
 import KonvaFactory from '../factories/KonvaFactory.ts'
 import { AnimalsWithImages } from '../types/data.ts'
+import { Image } from 'konva/lib/shapes/Image'
+import CursorManager from '../helpers/CursorManager.ts'
 
 export default class Game {
   constructor(
@@ -17,6 +19,8 @@ export default class Game {
     stage.add(animalDropLayer)
     stage.add(animalLayer)
 
+    backgroundLayer.add(this.konvaFactory.createBackgroundImage(this.backgroundImage))
+
     var score = 3
 
     // create draggable animals
@@ -26,6 +30,7 @@ export default class Game {
         let anim = that.animalsWithImages[animalName]
 
         let animal = that.konvaFactory.createImage(anim)
+        let animalDropImage = that.konvaFactory.createDropImage(anim)
 
         animal.on('dragstart', function () {
           this.moveToTop()
@@ -35,16 +40,15 @@ export default class Game {
          * snap into place if it is
          */
         animal.on('dragend', function () {
-          if (!animal.inRightPlace && that.isNearOutline(animal, anim.drop)) {
+          if (!animal.inRightPlace && that.isNearOutline(animal, animalDropImage)) {
             animal.position({
-              x: anim.drop.x,
-              y: anim.drop.y,
+              x: animalDropImage.x(),
+              y: animalDropImage.y(),
             })
             animal.inRightPlace = true
 
             if (++score >= 4) {
-              var text = 'You win! Enjoy your booty!'
-              that.drawBackground(backgroundLayer, that.backgroundImage, text)
+              alert('You win! Enjoy your booty!')
             }
 
             // disable drag and drop
@@ -56,51 +60,30 @@ export default class Game {
         // make animal glow on mouseover
         animal.on('mouseover', function () {
           animal.image(anim.images.glow)
-          document.body.style.cursor = 'pointer'
+          CursorManager.setPointCursor()
         })
         // return animal on mouseout
         animal.on('mouseout', function () {
           animal.image(anim.images.origin)
-          document.body.style.cursor = 'default'
+          CursorManager.setDefaultCursor()
         })
 
         animal.on('dragmove', function () {
-          document.body.style.cursor = 'pointer'
+          CursorManager.setPointCursor()
         })
 
-        let outline = that.konvaFactory.createDropImage(anim)
-
-        animalDropLayer.add(outline)
+        animalDropLayer.add(animalDropImage)
         animalLayer.add(animal)
       })(this)
     }
-
-    this.drawBackground(
-      backgroundLayer,
-      this.backgroundImage,
-      'Ahoy! Put the animals on the beach!',
-    )
   }
 
-  isNearOutline(animal, outline) {
-    var a = animal
-    var o = outline
-    var ax = a.x()
-    var ay = a.y()
+  isNearOutline(animal: Image, animalDropImage: Image): boolean {
+    const a = animal
+    const o = animalDropImage
+    const ax = a.x()
+    const ay = a.y()
 
-    if (ax > o.x - 20 && ax < o.x + 20 && ay > o.y - 20 && ay < o.y + 20) {
-      return true
-    } else {
-      return false
-    }
-  }
-
-  drawBackground(background, beachImg, text) {
-    var context = background.getContext()
-    context.drawImage(beachImg, 0, 0)
-    context.setAttr('font', '20pt Calibri')
-    context.setAttr('textAlign', 'center')
-    context.setAttr('fillStyle', 'white')
-    context.fillText(text, background.getStage().width() / 2, 40)
+    return ax > o.x() - 20 && ax < o.x() + 20 && ay > o.y() - 20 && ay < o.y() + 20
   }
 }
