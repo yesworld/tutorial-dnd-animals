@@ -3,6 +3,7 @@ import ImageLoaderService from '../services/ImageLoaderService.ts'
 import { AnimalPromiseImages } from '../types/image.ts'
 import { AnimalsData, AnimalsWithImages, ImageData } from '../types/data.ts'
 import KonvaFactory from '../factories/KonvaFactory.ts'
+import CanvasSizeService from '../services/CanvasSizeService.ts'
 
 export default class GameBuilder {
   private backgroundImage: Promise<HTMLImageElement> | null = null
@@ -59,7 +60,13 @@ export default class GameBuilder {
       }
     }
 
-    const konvaFactory = new KonvaFactory(backgroundImage.width, backgroundImage.height)
+    const canvasSizeService = new CanvasSizeService(
+      window.innerWidth,
+      window.innerHeight,
+      backgroundImage.width,
+      backgroundImage.height,
+    )
+    const konvaFactory = new KonvaFactory(canvasSizeService)
 
     return new Game(konvaFactory, animalsWithImages, backgroundImage)
   }
