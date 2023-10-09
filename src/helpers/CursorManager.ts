@@ -1,11 +1,11 @@
 class CursorManager {
-  constructor(private readonly body: HTMLElement) {}
+  constructor(private readonly element: HTMLElement) {}
   setPointCursor() {
-    this.body.style.cursor = 'pointer'
+    this.element.style.cursor = 'pointer'
   }
   setDefaultCursor() {
-    this.body.style.cursor = 'default'
+    this.element.style.cursor = 'default'
   }
 }
 
-export default new CursorManager(document.body)
+export default new CursorManager(document.getElementById('app') || document.body)
