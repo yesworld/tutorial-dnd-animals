@@ -4,47 +4,50 @@ import { randomInterval } from '../helpers/randomInterval.ts'
 import { Image } from 'konva/lib/shapes/Image'
 import { Layer } from 'konva/lib/Layer'
 import { Stage } from 'konva/lib/Stage'
+import CanvasSizeService from '../services/CanvasSizeService.ts'
 
 export default class KonvaFactory {
-  constructor(
-    private readonly width: number,
-    private readonly height: number,
-  ) {}
+  constructor(private readonly sizeService: CanvasSizeService) {}
   createStage(): Stage {
     return new Konva.Stage({
       container: 'app',
-      width: this.width,
-      height: this.height,
+      width: this.sizeService.getWidth(),
+      height: this.sizeService.getHeight(),
     })
   }
   createLayer(): Layer {
     return new Konva.Layer()
   }
   createImage(animal: AnimalWithImages): Image {
+    const width = animal.width * this.sizeService.getScale()
+    const height = animal.height * this.sizeService.getScale()
+
     return new Konva.Image({
       image: animal.images.origin,
-      x: randomInterval(0, this.width - animal.width),
-      y: randomInterval(0, this.height - animal.height),
+      x: randomInterval(0, this.sizeService.getWidth() - animal.width),
+      y: randomInterval(0, this.sizeService.getHeight() - animal.height),
       draggable: true,
-      width: animal.width,
-      height: animal.height,
+      width,
+      height,
     })
   }
   createDropImage(animal: AnimalWithImages): Image {
+    const width = animal.width * this.sizeService.getScale()
+    const height = animal.height * this.sizeService.getScale()
+
     return new Konva.Image({
       image: animal.images.drop,
-      x: animal.drop.x,
-      y: animal.drop.y,
-      width: animal.width,
-      height: animal.height,
+      x: animal.drop.x * this.sizeService.getScale(),
+      y: animal.drop.y * this.sizeService.getScale(),
+      width,
+      height,
     })
   }
-
   createBackgroundImage(backgroundImage: HTMLImageElement): Image {
     return new Konva.Image({
       image: backgroundImage,
-      width: backgroundImage.width,
-      height: backgroundImage.height,
+      width: this.sizeService.getWidth(),
+      height: this.sizeService.getHeight(),
     })
   }
 }
