@@ -23,3 +23,6 @@
 
 - Урок 5: Применяем анти паттерн Одиночка (Singleton).<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=T1l9GX3thv8) :octocat: [git-branch-tutorial5-create-pattern-singleton](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial5-create-pattern-singleton)
+
+- Урок 6: Плюсы/минусы Синглитона в TypeScript. Создаем сервис для работе с размерами игры в ООП стиле.<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=hEdUgYRE2KM) :octocat: [git-branch-tutorial06-create-canvas-size-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial06-create-canvas-size-service)
