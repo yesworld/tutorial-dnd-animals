@@ -7,7 +7,10 @@ import { Stage } from 'konva/lib/Stage'
 import CanvasSizeService from '../services/CanvasSizeService.ts'
 
 export default class KonvaFactory {
-  constructor(private readonly sizeService: CanvasSizeService) {}
+  constructor(
+    private readonly sizeService: CanvasSizeService,
+    private readonly backgroundImage: HTMLImageElement,
+  ) {}
   createStage(): Stage {
     return new Konva.Stage({
       container: 'app',
@@ -43,9 +46,9 @@ export default class KonvaFactory {
       height,
     })
   }
-  createBackgroundImage(backgroundImage: HTMLImageElement): Image {
+  createBackgroundImage(): Image {
     return new Konva.Image({
-      image: backgroundImage,
+      image: this.backgroundImage,
       width: this.sizeService.getWidth(),
       height: this.sizeService.getHeight(),
     })

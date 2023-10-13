@@ -7,7 +7,6 @@ export default class Game {
   constructor(
     private readonly konvaFactory: KonvaFactory,
     private readonly animalsWithImages: AnimalsWithImages,
-    private readonly backgroundImage: HTMLImageElement,
   ) {
     let stage = this.konvaFactory.createStage()
 
@@ -19,7 +18,7 @@ export default class Game {
     stage.add(animalDropLayer)
     stage.add(animalLayer)
 
-    backgroundLayer.add(this.konvaFactory.createBackgroundImage(this.backgroundImage))
+    backgroundLayer.add(this.konvaFactory.createBackgroundImage())
 
     var score = 3
 
