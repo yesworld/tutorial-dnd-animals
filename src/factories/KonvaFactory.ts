@@ -24,8 +24,8 @@ export default class KonvaFactory {
 
     return new Konva.Image({
       image: animal.images.origin,
-      x: randomInterval(0, this.sizeService.getWidth() - animal.width),
-      y: randomInterval(0, this.sizeService.getHeight() - animal.height),
+      x: randomInterval(0, this.sizeService.getWidth() - width),
+      y: randomInterval(0, this.sizeService.getHeight() - height),
       draggable: true,
       width,
       height,
