@@ -1,18 +1,17 @@
 import KonvaFactory from '../factories/KonvaFactory.ts'
 import { AnimalsWithImages } from '../types/data.ts'
-import { Image } from 'konva/lib/shapes/Image'
-import CursorManager from '../helpers/CursorManager.ts'
+import AnimalManager from './AnimalManager.ts'
 
 export default class Game {
+  private score = 0
   constructor(
     private readonly konvaFactory: KonvaFactory,
     private readonly animalsWithImages: AnimalsWithImages,
   ) {
-    let stage = this.konvaFactory.createStage()
-
-    let backgroundLayer = this.konvaFactory.createLayer()
-    let animalDropLayer = this.konvaFactory.createLayer()
-    let animalLayer = this.konvaFactory.createLayer()
+    const stage = this.konvaFactory.createStage()
+    const backgroundLayer = this.konvaFactory.createLayer()
+    const animalDropLayer = this.konvaFactory.createLayer()
+    const animalLayer = this.konvaFactory.createLayer()
 
     stage.add(backgroundLayer)
     stage.add(animalDropLayer)
@@ -20,69 +19,29 @@ export default class Game {
 
     backgroundLayer.add(this.konvaFactory.createBackgroundImage())
 
-    var score = 3
-
-    // create draggable animals
+    this.score = Object.keys(this.animalsWithImages).length
     for (let animalName in this.animalsWithImages) {
-      // anonymous function to induce scope
-      ;(function (that) {
-        let anim = that.animalsWithImages[animalName]
+      const animalData = this.animalsWithImages[animalName]
+      const konvaAnimal = this.konvaFactory.createImage(animalData)
+      const konvaAnimalDrop = this.konvaFactory.createDropImage(animalData)
 
-        let animal = that.konvaFactory.createImage(anim)
-        let animalDropImage = that.konvaFactory.createDropImage(anim)
+      new AnimalManager(
+        konvaAnimal,
+        konvaAnimalDrop,
+        this.onChangeScore.bind(this),
+        animalData.images,
+      )
 
-        animal.on('dragstart', function () {
-          this.moveToTop()
-        })
-        /*
-         * check if animal is in the right spot and
-         * snap into place if it is
-         */
-        animal.on('dragend', function () {
-          if (!animal.inRightPlace && that.isNearOutline(animal, animalDropImage)) {
-            animal.position({
-              x: animalDropImage.x(),
-              y: animalDropImage.y(),
-            })
-            animal.inRightPlace = true
-
-            if (++score >= 4) {
-              alert('You win! Enjoy your booty!')
-            }
-
-            // disable drag and drop
-            setTimeout(function () {
-              animal.draggable(false)
-            }, 50)
-          }
-        })
-        // make animal glow on mouseover
-        animal.on('mouseover', function () {
-          animal.image(anim.images.glow)
-          CursorManager.setPointCursor()
-        })
-        // return animal on mouseout
-        animal.on('mouseout', function () {
-          animal.image(anim.images.origin)
-          CursorManager.setDefaultCursor()
-        })
-
-        animal.on('dragmove', function () {
-          CursorManager.setPointCursor()
-        })
-
-        animalDropLayer.add(animalDropImage)
-        animalLayer.add(animal)
-      })(this)
+      animalDropLayer.add(konvaAnimalDrop)
+      animalLayer.add(konvaAnimal)
     }
   }
 
-  isNearOutline(animal: Image, animalDropImage: Image): boolean {
-    const a = animal
-    const o = animalDropImage
-    const ax = a.x()
-    const ay = a.y()
+  onChangeScore() {
+    if (--this.score !== 0) {
+      return
+    }
 
-    return ax > o.x() - 20 && ax < o.x() + 20 && ay > o.y() - 20 && ay < o.y() + 20
+    alert('You win! Enjoy your booty!')
   }
 }
