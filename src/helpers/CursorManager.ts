@@ -6,6 +6,9 @@ class CursorManager {
   setDefaultCursor() {
     this.element.style.cursor = 'default'
   }
+  setGrabbingCursor() {
+    this.element.style.cursor = 'grabbing'
+  }
 }
 
 export default new CursorManager(document.getElementById('app') || document.body)
