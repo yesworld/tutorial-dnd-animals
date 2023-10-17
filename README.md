@@ -1,5 +1,5 @@
 # tutorial-dnd-animals
-Детская интерактивная пазл игра с животными на TypeScript, написанная с целью обучения, где мы попытаемся разбить [портянку кода](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) и создать свою Архитектуру проекта, придерживаясь ООП стиля программирования с использованием паттернов. 
+Детская интерактивная пазл игра с животными на ts (TypeScript), написанная с целью обучения, где мы попытаемся разбить [портянку старого кода](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) и создать свою **Чистую архитектуру** проекта, придерживаясь ООП стиля программирования с использованием паттернов. 
 
 Сложность: :full_moon: :full_moon: :full_moon: :last_quarter_moon: :new_moon:
 ![original-animal-day.svg](public/animal-day-preview.jpg)
