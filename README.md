@@ -10,19 +10,22 @@
   :tv: [YouTube](https://www.youtube.com/watch?v=HO6wBG8FFqo)
   
 - Урок 1: SVG нарезка и содание отдельных файлов c животными. Подготовка файла источника **sources** с набором координат.<br>
-  :tv: [YouTube](https://www.youtube.com/watch?v=k87xvt_7WcM) :octocat: [git-branch-tutorial-01](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
+  :tv: [YouTube](https://www.youtube.com/watch?v=k87xvt_7WcM) :octocat: [git-branch: tutorial-01](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial1-add-svg-animals-to-project)
 
 - Урок 2: Создание ImageLoaderService по загрузке изображений. Добавление типов для TS.<br>
-  :tv: [YouTube](https://www.youtube.com/watch?v=rzPTPMg2E30) :octocat: [git-branch-tutorial2-create-image-loader-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial2-create-image-loder-service)
+  :tv: [YouTube](https://www.youtube.com/watch?v=rzPTPMg2E30) :octocat: [git-branch: tutorial2-create-image-loader-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial2-create-image-loder-service)
 
 - Урок 3: Применяем пораждающий паттерн Билдер (Builder). Приводим проект к ООП стилю.<br>
-  :tv: [YouTube](https://youtu.be/kjj_4czV--c) :octocat: [git-branch-tutorial3-create-game-builder](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial3-create-game-builder)
+  :tv: [YouTube](https://youtu.be/kjj_4czV--c) :octocat: [git-branch: tutorial3-create-game-builder](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial3-create-game-builder)
 
 - Урок 4: Применяем пораждающий паттерн Фабрика (Simple Factory). Делаем небольшой рефакторинг.<br>
-  :tv: [YouTube](https://youtu.be/Npjy5hL6ppA) :octocat: [git-branch-tutorial4-create-konva-factory](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial4-create-konva-factory)
+  :tv: [YouTube](https://youtu.be/Npjy5hL6ppA) :octocat: [git-branch: tutorial4-create-konva-factory](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial4-create-konva-factory)
 
 - Урок 5: Применяем анти паттерн Одиночка (Singleton).<br>
-  :tv: [YouTube](https://www.youtube.com/watch?v=T1l9GX3thv8) :octocat: [git-branch-tutorial5-create-pattern-singleton](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial5-create-pattern-singleton)
+  :tv: [YouTube](https://www.youtube.com/watch?v=T1l9GX3thv8) :octocat: [git-branch: tutorial5-create-pattern-singleton](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial5-create-pattern-singleton)
 
 - Урок 6: Плюсы/минусы Синглитона в TypeScript. Создаем сервис для работе с размерами игры в ООП стиле.<br>
-  :tv: [YouTube](https://www.youtube.com/watch?v=hEdUgYRE2KM) :octocat: [git-branch-tutorial06-create-canvas-size-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial06-create-canvas-size-service)
+  :tv: [YouTube](https://www.youtube.com/watch?v=hEdUgYRE2KM) :octocat: [git-branch: tutorial06-create-canvas-size-service](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial06-create-canvas-size-service)
+
+- Урок 7: Применим SRP - принцип единой ответственности в TypeScript (SOLID).<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=OHxE1NKnPJc) :octocat: [git-branch: tutorial07-srp-animal-manager](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial07-srp-animal-manager)
