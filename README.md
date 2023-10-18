@@ -1,11 +1,12 @@
-# tutorial-dnd-animals
+# Уроки как создать чистую ООП архитектуру для детской игры.
+
 Детская интерактивная пазл игра с животными на ts (TypeScript), написанная с целью обучения, где мы попытаемся разбить [портянку старого кода](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) и создать свою **Чистую архитектуру** проекта, придерживаясь ООП стиля программирования с использованием паттернов. 
 
 Сложность: :full_moon: :full_moon: :full_moon: :last_quarter_moon: :new_moon:
 ![original-animal-day.svg](public/animal-day-preview.jpg)
 <div dir="rtl">Image by <a href="https://www.freepik.com/free-vector/world-animal-day-flat-design-background_31240982.htm#&position=0&from_view=search&track=ais">Freepik</a></div>
 
-## Список уроков
+## Список уроков на ютубе
 - Урок 0: Подготовка проекта. Установка Vite, Prettier и Konva.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=HO6wBG8FFqo)
   
@@ -29,3 +30,11 @@
 
 - Урок 7: Применим SRP - принцип единой ответственности в TypeScript (SOLID).<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=OHxE1NKnPJc) :octocat: [git-branch: tutorial07-srp-animal-manager](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial07-srp-animal-manager)
+
+## Как ты можешь помочь проекту?
+- ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
+- :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
+- 💬 Оставь комментарий под видео.
+- 👍 Воткни свой царский лайк.
+### На кофе:
+- ☕️ [donationalerts](https://www.donationalerts.com/r/dev_yesworld)
