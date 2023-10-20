@@ -1,8 +1,17 @@
 import './style.css'
-import { dataAnimals, dataBackground } from './sources.ts'
+import { dataAnimals, dataBackground, soundsData } from './sources.ts'
 import ImageLoaderService from './services/ImageLoaderService.ts'
 import GameBuilder from './core/GameBuilder.ts'
+import AudioService from './services/AudioService.ts'
 
-const gameBuilder = new GameBuilder(new ImageLoaderService(), dataAnimals)
+const gameBuilder = new GameBuilder(
+  new ImageLoaderService(),
+  new AudioService('/sound/'),
+  dataAnimals,
+)
 
-const game = await gameBuilder.loadBackground(dataBackground).loadImageAnimals().build()
+const game = await gameBuilder
+  .loadSounds(soundsData)
+  .loadBackground(dataBackground)
+  .loadImageAnimals()
+  .build()

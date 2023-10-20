@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.10",
     "prettier": "3.0.3",
     "typescript": "^5.2.2",
     "vite": "^4.4.11"
   },
   "dependencies": {
+    "howler": "^2.2.4",
     "konva": "^9.2.2"
   }
 }

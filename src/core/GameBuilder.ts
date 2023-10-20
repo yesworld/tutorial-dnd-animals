@@ -1,9 +1,10 @@
 import Game from './Game.ts'
 import ImageLoaderService from '../services/ImageLoaderService.ts'
 import { AnimalPromiseImages } from '../types/image.ts'
-import { AnimalsData, AnimalsWithImages, ImageData } from '../types/data.ts'
+import { AnimalsData, AnimalsWithImages, ImageData, SoundsData } from '../types/data.ts'
 import KonvaFactory from '../factories/KonvaFactory.ts'
 import CanvasSizeService from '../services/CanvasSizeService.ts'
+import AudioService from '../services/AudioService.ts'
 
 export default class GameBuilder {
   private backgroundImage: Promise<HTMLImageElement> | null = null
@@ -11,8 +12,17 @@ export default class GameBuilder {
 
   constructor(
     private readonly imageLoaderService: ImageLoaderService,
+    private readonly audioService: AudioService,
     private readonly dataAnimals: AnimalsData,
   ) {}
+
+  loadSounds(soundData: SoundsData) {
+    for (const trackName in soundData) {
+      this.audioService.load(trackName, soundData[trackName])
+    }
+
+    return this
+  }
 
   loadBackground(dataBackground: ImageData): GameBuilder {
     this.backgroundImage = this.imageLoaderService.load(
@@ -68,6 +78,6 @@ export default class GameBuilder {
     )
     const konvaFactory = new KonvaFactory(canvasSizeService, backgroundImage)
 
-    return new Game(konvaFactory, animalsWithImages)
+    return new Game(konvaFactory, this.audioService, animalsWithImages)
   }
 }

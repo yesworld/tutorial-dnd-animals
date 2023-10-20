@@ -1,27 +1,34 @@
 import CursorManager from '../helpers/CursorManager.ts'
 import { Image } from 'konva/lib/shapes/Image'
-import { AnimalImageElements } from '../types/image.ts'
+import AnimalEventObserver, {
+  AnimalEventSubject,
+  EAnimalEvents,
+} from '../types/AnimalEventObserver.ts'
 
-export default class AnimalManager {
+export default class AnimalManager implements AnimalEventSubject {
+  private observers: AnimalEventObserver[] = []
+
   constructor(
     private readonly konvaAnimal: Image,
     private readonly konvaAnimalDrop: Image,
-    private readonly onDropSuccess: Function,
-    htmlImages: AnimalImageElements['images'],
+    imageOrigin: HTMLImageElement,
+    imageGlow: HTMLImageElement,
   ) {
     this.cacheAndDraw(this.konvaAnimal)
 
     konvaAnimal.on('dragstart', this.onDragStart.bind(this))
     konvaAnimal.on('dragend', this.onDragEnd.bind(this))
-    konvaAnimal.on('mouseover', this.onMouseOver.bind(this, htmlImages.glow))
-    konvaAnimal.on('mouseout', this.onMouseOut.bind(this, htmlImages.origin))
+    konvaAnimal.on('mouseover', this.onMouseOver.bind(this, imageGlow))
+    konvaAnimal.on('mouseout', this.onMouseOut.bind(this, imageOrigin))
     konvaAnimal.on('dragmove', this.onDragMove.bind(this))
   }
-  private onDragStart() {
+  onDragStart() {
     this.konvaAnimal.moveToTop()
+    this.notifyObservers(EAnimalEvents.DRAG_START)
   }
-  private onDragEnd() {
+  onDragEnd() {
     if (!this.isNearOutline(this.konvaAnimal, this.konvaAnimalDrop)) {
+      this.notifyObservers(EAnimalEvents.DRAG_END, { success: false })
       return
     }
 
@@ -30,11 +37,10 @@ export default class AnimalManager {
       y: this.konvaAnimalDrop.y(),
     })
 
-    // disable drag and drop
-    setTimeout(() => {
-      this.konvaAnimal.draggable(false)
-      this.onDropSuccess()
-    }, 0)
+    this.konvaAnimal.draggable(false)
+    this.konvaAnimal.off('dragstart dragend mouseover')
+
+    this.notifyObservers(EAnimalEvents.DRAG_END, { success: true })
   }
 
   onMouseOver(imageGlow: HTMLImageElement) {
@@ -70,5 +76,24 @@ export default class AnimalManager {
       pixelRatio: 3,
     })
     image.drawHitFromCache()
+  }
+
+  notifyObservers(eventType: EAnimalEvents, data?: any): void {
+    this.observers.forEach((o) => o.update(eventType, data))
+  }
+
+  subscribe(observer: AnimalEventObserver): void {
+    if (this.observers.includes(observer)) {
+      return
+    }
+
+    this.observers.push(observer)
+  }
+
+  unsubscribe(observer: AnimalEventObserver): void {
+    const observerIndex = this.observers.indexOf(observer)
+    if (observerIndex > -1) {
+      this.observers.splice(observerIndex, 1)
+    }
   }
 }
