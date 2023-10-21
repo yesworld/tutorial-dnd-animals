@@ -1,9 +1,16 @@
-import { AnimalsData } from './types/data.ts'
+import { AnimalsData, ImageData, SoundsData } from './types/data.ts'
 
-const dataBackground = {
+const dataBackground: ImageData = {
   src: 'background.svg',
   width: 750,
   height: 500,
+}
+
+const soundsData: Readonly<SoundsData> = {
+  'pop-up-on': 'pop-up-on.mp3',
+  'pop-up-off': 'pop-up-off.mp3',
+  'pop-down': 'pop-down.mp3',
+  win: 'kids-cheering.mp3',
 }
 
 const dataAnimals: AnimalsData = {
@@ -100,4 +107,4 @@ const dataAnimals: AnimalsData = {
   },
 }
 
-export { dataBackground, dataAnimals }
+export { dataBackground, dataAnimals, soundsData }
