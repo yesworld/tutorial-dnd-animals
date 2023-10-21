@@ -31,6 +31,9 @@
 - Урок 7: Применим SRP - принцип единой ответственности в TypeScript (SOLID).<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=OHxE1NKnPJc) :octocat: [git-branch: tutorial07-srp-animal-manager](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial07-srp-animal-manager)
 
+- Урок 8: Живой пример поведенческого паттерна Наблюдатель (Observer) на TypeScript / JavaScript.<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=51Og538pXcw) :octocat: [git-branch: tutorial08-animal-observer](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial08-animal-observer)
+
 ## Как ты можешь помочь проекту?
 - ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
 - :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
