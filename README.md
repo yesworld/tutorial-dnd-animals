@@ -1,8 +1,9 @@
-# Уроки как создать чистую ООП архитектуру для детской игры.
+# Уроки как создать чистую ООП архитектуру для детской игры. / Lessons on how to create a pure OOP architecture for a children's game.
 
 Детская интерактивная пазл игра с животными на ts (TypeScript), написанная с целью обучения, где мы попытаемся разбить [портянку старого кода](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) и создать свою **Чистую архитектуру** проекта, придерживаясь ООП стиля программирования с использованием паттернов. 
 
-Сложность: :full_moon: :full_moon: :full_moon: :last_quarter_moon: :new_moon:
+Сложность урока: :full_moon: :full_moon: :full_moon: :full_moon: :last_quarter_moon: (Очень сложно)
+
 ![original-animal-day.svg](public/animal-day-preview.jpg)
 <div dir="rtl">Image by <a href="https://www.freepik.com/free-vector/world-animal-day-flat-design-background_31240982.htm#&position=0&from_view=search&track=ais">Freepik</a></div>
 
