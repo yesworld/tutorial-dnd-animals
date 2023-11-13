@@ -3,9 +3,14 @@ import { AnimalsWithImages } from '../types/data.ts'
 import AnimalManager from './AnimalManager.ts'
 import AnimalEventObserver, { EAnimalEvents } from '../types/AnimalEventObserver.ts'
 import AudioService from '../services/AudioService.ts'
+import { Layer } from 'konva/lib/Layer'
 
 export default class Game implements AnimalEventObserver {
   private score = 0
+  private readonly animalDropLayer: Layer
+  private readonly animalLayer: Layer
+  private endGameCallback = (): void => {}
+
   constructor(
     private readonly konvaFactory: KonvaFactory,
     private readonly audioService: AudioService,
@@ -13,15 +18,17 @@ export default class Game implements AnimalEventObserver {
   ) {
     const stage = this.konvaFactory.createStage()
     const backgroundLayer = this.konvaFactory.createLayer()
-    const animalDropLayer = this.konvaFactory.createLayer()
-    const animalLayer = this.konvaFactory.createLayer()
+    this.animalDropLayer = this.konvaFactory.createLayer()
+    this.animalLayer = this.konvaFactory.createLayer()
 
     stage.add(backgroundLayer)
-    stage.add(animalDropLayer)
-    stage.add(animalLayer)
+    stage.add(this.animalDropLayer)
+    stage.add(this.animalLayer)
 
     backgroundLayer.add(this.konvaFactory.createBackgroundImage())
+  }
 
+  start() {
     this.score = Object.keys(this.animalsWithImages).length
     for (let animalName in this.animalsWithImages) {
       const animalData = this.animalsWithImages[animalName]
@@ -37,18 +44,26 @@ export default class Game implements AnimalEventObserver {
       animalManager.subscribe(this)
       animalManager.subscribe(this.audioService)
 
-      animalDropLayer.add(konvaAnimalDrop)
-      animalLayer.add(konvaAnimal)
+      this.animalDropLayer.add(konvaAnimalDrop)
+      this.animalLayer.add(konvaAnimal)
     }
   }
+  restart() {
+    this.animalDropLayer.destroyChildren()
+    this.animalLayer.destroyChildren()
 
+    this.start()
+  }
+  onEndGame(fn: () => void) {
+    this.endGameCallback = fn
+  }
   onChangeScore() {
     if (--this.score !== 0) {
       return
     }
 
     this.audioService.playWin()
-    setTimeout(() => alert('You win! Enjoy your booty!'), 0)
+    this.endGameCallback()
   }
 
   update(eventType: EAnimalEvents, data?: any): void {

@@ -61,7 +61,15 @@ body {
 .read-the-docs {
   color: #888;
 }
-
+#menu {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  gap: 10px;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;

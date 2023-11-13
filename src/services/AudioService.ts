@@ -7,16 +7,22 @@ type ISound = {
 
 export default class AudioService implements AnimalEventObserver {
   private sounds: ISound = {}
+  private isMute = false
 
   constructor(private readonly folder: string) {}
 
+  toggleSound(): boolean {
+    this.isMute = !this.isMute
+
+    return this.isMute
+  }
   load(trackName: string, fileName: string) {
     const src = this.folder + fileName
     this.sounds[trackName] = new Howl({ src })
   }
 
   play(trackName: string, volume?: number) {
-    if (!this.sounds[trackName]) {
+    if (!this.sounds[trackName] || this.isMute) {
       return
     }
 
