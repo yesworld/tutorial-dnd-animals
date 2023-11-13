@@ -35,6 +35,9 @@
 - Урок 8: Живой пример поведенческого паттерна Наблюдатель (Observer) на TypeScript / JavaScript.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=51Og538pXcw&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=9) :octocat: [git-branch: tutorial08-animal-observer](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial08-animal-observer)
 
+- Урок 9: Создаем интерфейс для работы с игрой и добавим canvas confetti в callback завершения игры.<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=cl5BluRPn9U&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=10) :octocat: [git-branch: tutorial09-create-api-game-add-confetti-to-game](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial09-create-api-game-add-confetti-to-game)
+
 ## Как ты можешь помочь проекту?
 - ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
 - :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
