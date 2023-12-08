@@ -19,5 +19,3 @@ jobs:
           ls ${{ github.workspace }} -lah
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
-      - name: Debug
-        run: echo "${{ toJSON(github) }}"
