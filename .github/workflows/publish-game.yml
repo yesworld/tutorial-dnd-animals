@@ -1,6 +1,6 @@
 name: Build and Deploy game animals
 run-name: Deploy by ${{ github.actor }} 🚀
-on: [push]
+on: [push, pull_request, workflow_dispatch]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
