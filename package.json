@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/canvas-confetti": "^1.6.3",
     "@types/howler": "^2.2.10",
+    "@types/node": "^20.10.4",
     "prettier": "3.0.3",
     "typescript": "^5.2.2",
     "vite": "^4.4.11"

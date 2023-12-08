@@ -3,7 +3,7 @@ import { randomInterval } from '../helpers/randomInterval.ts'
 
 export default class ConfettiService {
   private readonly options: Options
-  private timerId: number = 0
+  private timerId?: NodeJS.Timeout
 
   constructor(options = {}) {
     const defaultOptions = {
