@@ -4,9 +4,10 @@ import ImageLoaderService from './services/ImageLoaderService.ts'
 import GameBuilder from './core/GameBuilder.ts'
 import AudioService from './services/AudioService.ts'
 import ConfettiService from './services/ConfettiService.ts'
+import SnowService from './services/SnowService.ts'
 const BASE_URL = import.meta.env.BASE_URL
 
-const audioService = new AudioService(`${BASE_URL}/sound/`)
+const audioService = new AudioService(`${BASE_URL}sound/`)
 const gameBuilder = new GameBuilder(new ImageLoaderService(), audioService, dataAnimals)
 
 ;(async () => {
@@ -31,5 +32,10 @@ const gameBuilder = new GameBuilder(new ImageLoaderService(), audioService, data
   const confettiService = new ConfettiService()
   game.onEndGame(() => {
     setTimeout(() => confettiService.start(3), 0)
+  })
+
+  const snowService = new SnowService()
+  document.querySelector('#snow')?.addEventListener('click', () => {
+    snowService.start()
   })
 })()

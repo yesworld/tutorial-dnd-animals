@@ -2,8 +2,8 @@ import confetti, { Options } from 'canvas-confetti'
 import { randomInterval } from '../helpers/randomInterval.ts'
 
 export default class ConfettiService {
-  private readonly options: Options
-  private timerId: number = 0
+  protected readonly options: Options
+  protected timerId: number = 0
 
   constructor(options = {}) {
     const defaultOptions = {
