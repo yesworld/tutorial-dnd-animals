@@ -38,6 +38,9 @@
 - Урок 9: Создаем интерфейс для работы с игрой и добавим canvas confetti в callback завершения игры.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=cl5BluRPn9U&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=10) :octocat: [git-branch: tutorial09-create-api-game-add-confetti-to-game](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial09-create-api-game-add-confetti-to-game)
 
+- Урок 10 CI/CD: Build и Deploy нашей игры на TS для публикации в Git Pages при помощи GitHub Actions.<br>
+  :tv: [YouTube](https://www.youtube.com/watch?v=6duJm33Peag&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=11) :octocat: [tutorial-dnd-animals](https://github.com/yesworld/tutorial-dnd-animals)
+
 ## Как ты можешь помочь проекту?
 - ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
 - :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
