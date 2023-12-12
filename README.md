@@ -41,6 +41,9 @@
 - Урок 10 CI/CD: Build и Deploy нашей игры на TS для публикации в Git Pages при помощи GitHub Actions.<br>
   :tv: [YouTube](https://www.youtube.com/watch?v=6duJm33Peag&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=11) :octocat: [tutorial-dnd-animals](https://github.com/yesworld/tutorial-dnd-animals)
 
+## Тот кто смог :)
+- https://github.com/karfagen86/tutorial-dnd-animals-v2
+
 ## Как ты можешь помочь проекту?
 - ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
 - :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
