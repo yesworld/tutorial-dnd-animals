@@ -42,7 +42,8 @@
   :tv: [YouTube](https://www.youtube.com/watch?v=6duJm33Peag&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=11) :octocat: [tutorial-dnd-animals](https://github.com/yesworld/tutorial-dnd-animals)
 
 ## Тот кто смог :)
-- https://github.com/karfagen86/tutorial-dnd-animals-v2
+- 🏆 https://github.com/davidbayra/game-puzzle-animals / 🕹 [Play](https://davidbayra.github.io/game-puzzle-animals/)
+- 🏆 https://github.com/karfagen86/tutorial-dnd-animals-v2 / 🕹 [Play](https://karfagen86.github.io/tutorial-dnd-animals-v2/)
 
 ## Как ты можешь помочь проекту?
 - ⭐️ Поставь звезду проекту **tutorial-dnd-animals** (справа наверху этой страницы).
