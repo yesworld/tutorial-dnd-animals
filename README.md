@@ -2,7 +2,9 @@
 
 Детская интерактивная пазл игра с животными на ts (TypeScript), написанная с целью обучения, где мы попытаемся разбить [портянку старого кода](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) и создать свою **Чистую архитектуру** проекта, придерживаясь ООП стиля программирования с использованием паттернов. 
 
-Сложность урока: :full_moon: :full_moon: :full_moon: :full_moon: :last_quarter_moon: (Очень сложно)
+We are developing an interactive game of puzzles for children with animals using Typescript. We will do a [refactor of the old code](https://github.com/yesworld/tutorial-dnd-animals/commit/e74b428898f3da415e3d49b2497f80c56ee217b1#diff-4fab5baaca5c14d2de62d8d2fceef376ddddcc8e9509d86cfa5643f51b89ce3d) and try to write with pure architecture. Where we will use the design of the pattern.
+
+Сложность урока/difficulty of the lesson: :full_moon: :full_moon: :full_moon: :full_moon: :last_quarter_moon: (Очень сложно/Very hard)
 
 ![original-animal-day.svg](public/animal-day-preview.jpg)
 <div dir="rtl">Image by <a href="https://www.freepik.com/free-vector/world-animal-day-flat-design-background_31240982.htm#&position=0&from_view=search&track=ais">Freepik</a></div>
@@ -39,7 +41,7 @@
   :tv: [YouTube](https://www.youtube.com/watch?v=cl5BluRPn9U&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=10) :octocat: [git-branch: tutorial09-create-api-game-add-confetti-to-game](https://github.com/yesworld/tutorial-dnd-animals/tree/tutorial09-create-api-game-add-confetti-to-game)
 
 - Урок 10 CI/CD: Build и Deploy нашей игры на TS для публикации в Git Pages при помощи GitHub Actions.<br>
-  :tv: [YouTube](https://www.youtube.com/watch?v=6duJm33Peag&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=11) :octocat: [tutorial-dnd-animals](https://github.com/yesworld/tutorial-dnd-animals)
+  :tv: [YouTube](https://www.youtube.com/watch?v=6duJm33Peag&list=PLMo7VyNbwQJGgWBYHPTDysdNg1UiBXXMT&index=11) :octocat: [commit: add deploy](https://github.com/yesworld/tutorial-dnd-animals/commit/08a92af9fac1d44a2ec8dca6c0369c6134c77ae3)
 
 ## Тот кто смог :)
 - 🏆 https://github.com/davidbayra/game-puzzle-animals / 🕹 [Play](https://davidbayra.github.io/game-puzzle-animals/)
@@ -50,5 +52,6 @@
 - :tv: Подпишись на [канал](https://www.youtube.com/channel/UCRWYGOCWalOGOXnzqJd2MbQ).
 - 💬 Оставь комментарий под видео.
 - 👍 Воткни свой царский лайк.
+
 ### На кофе:
 - ☕️ [donationalerts](https://www.donationalerts.com/r/dev_yesworld)
