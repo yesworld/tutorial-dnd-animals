@@ -54,4 +54,5 @@ We are developing an interactive game of puzzles for children with animals using
 - 👍 Воткни свой царский лайк.
 
 ### На кофе:
+- ☕️ [boosty](https://boosty.to/dev_yesworld)
 - ☕️ [donationalerts](https://www.donationalerts.com/r/dev_yesworld)
